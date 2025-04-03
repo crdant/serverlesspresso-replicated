@@ -1,6 +1,8 @@
 # ✨ Serverlesspresso Crossplane Helm Project – Coding Conventions
 
-These conventions apply to the conversion of the Serverlesspresso SAM-based CloudFormation template into a Helm chart managed by Crossplane using Upbound AWS providers.
+These conventions apply to the conversion of the Serverlesspresso SAM-based
+CloudFormation template into a Helm chart managed by Crossplane using Upbound
+AWS providers.
 
 ---
 
@@ -62,6 +64,8 @@ These conventions apply to the conversion of the Serverlesspresso SAM-based Clou
 - Always use the latest stable version of the Upbound AWS providers.
 - Ensure each resource includes a valid `providerConfigRef.name`.
 - Avoid using `deletionPolicy: Orphan` unless necessary.
+- Assure that the apropriate provider is included in the `cloud-providers`
+  chart whenever you introduce a new resource.
 
 ---
 
