@@ -19,3 +19,16 @@ providers:
       rds: "crossplane-contrib/provider-aws-rds"
     waitJob:
       serviceAccountName: ""
+    
+    # AWS Provider Config
+    providerConfig:
+      name: "default"
+      # AWS credentials source
+      credentials:
+        source: Secret
+        secretRef:
+          namespace: crossplane-system
+          name: aws-creds
+          key: creds
+      # Default AWS region
+      defaultRegion: us-east-1
