@@ -1,0 +1,59 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "properties": {
+    "nameOverride": {
+      "type": "string",
+      "description": "Override the name of the chart"
+    },
+    "fullnameOverride": {
+      "type": "string",
+      "description": "Override the full name of the chart"
+    },
+    "appName": {
+      "type": "string",
+      "description": "Application name used for resource naming",
+      "default": "serverlesspresso"
+    },
+    "service": {
+      "type": "string",
+      "description": "Service name used for resource naming",
+      "default": "app"
+    },
+    "logRetentionInDays": {
+      "type": "integer",
+      "description": "Number of days to retain logs",
+      "default": 7,
+      "minimum": 1
+    },
+    "timeInterval": {
+      "type": "integer",
+      "description": "Time interval for operations (in seconds)",
+      "default": 300,
+      "minimum": 1
+    },
+    "codeLength": {
+      "type": "integer",
+      "description": "Length of verification codes",
+      "default": 6,
+      "minimum": 1
+    },
+    "tokensPerBucket": {
+      "type": "integer",
+      "description": "Number of tokens per rate limit bucket",
+      "default": 5,
+      "minimum": 1
+    },
+    "source": {
+      "type": "string",
+      "description": "Source code location or reference",
+      "default": "github.com/aws-samples/serverless-coffee-workshop"
+    },
+    "providerConfigRef": {
+      "type": "string",
+      "description": "Provider configuration reference for AWS resources. Leave empty to use the default provider config from cloud-providers chart",
+      "default": ""
+    }
+  },
+  "required": ["appName", "service"]
+}

@@ -1,5 +1,3 @@
-# Create a detailed todo checklist based on the plan and prompts
-todo_md = """
 # ✅ Serverlesspresso Helm Chart Conversion — TODO Checklist
 
 This checklist tracks the conversion of the Serverlesspresso CloudFormation stack into a Crossplane-managed Helm chart using the Upbound AWS provider family. **No XRD or Composition** — all resources are directly managed.
@@ -18,8 +16,10 @@ This checklist tracks the conversion of the Serverlesspresso CloudFormation stac
   - [✅] tokensPerBucket
   - [✅] source
 - [✅] Create `_helpers.tpl` for naming helpers
-- [ ] Create base `templates/` directory
-- [ ] Set up default `providerConfigRef` as a Helm value
+- [✅] Create base `templates/` directory
+- [✅] Set up default `providerConfigRef` as a Helm value:
+  - [✅] Ensure provider config is properly named and labeled in `cloud-providers` chart
+  - [✅] Add providerConfigRef value in `serverlesspresso` chart with empty default
 
 ---
 
@@ -125,11 +125,3 @@ This checklist tracks the conversion of the Serverlesspresso CloudFormation stac
 - [ ] Add output values to `NOTES.txt` or chart outputs
 - [ ] Add Helm install instructions to README
 - [ ] CI/CD automation (optional)
-"""
-
-# Save the checklist to a markdown file
-from pathlib import Path
-todo_path = Path("/mnt/data/todo.md")
-todo_path.write_text(todo_md.strip())
-
-todo_path.name

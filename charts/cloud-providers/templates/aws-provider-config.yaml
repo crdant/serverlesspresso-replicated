@@ -1,0 +1,26 @@
+apiVersion: upbound.io/v1beta1
+kind: ProviderConfig
+metadata:
+  name: {{ .Values.providers.aws.providerConfig.name }}
+  annotations:
+    "helm.sh/hook": post-install,post-upgrade
+    "helm.sh/hook-weight": "1"
+    "helm.sh/hook-delete-policy": before-hook-creation
+  labels:
+    {{- include "cloud-providers.labels" . | nindent 4 }}
+spec:
+  credentials:
+    source: Secret
+    secretRef:
+      {{- if .Values.providers.aws.providerConfig.existingSecret.name }}
+      namespace: {{ .Values.providers.aws.providerConfig.existingSecret.namespace }}
+      name: {{ .Values.providers.aws.providerConfig.existingSecret.name }}
+      key: {{ .Values.providers.aws.providerConfig.existingSecret.key }}
+      {{- else }}
+      namespace: crossplane-system
+      name: {{ include "cloud-providers.fullname" . }}-aws-creds
+      key: creds
+      {{- end }}
+  {{- if .Values.providers.aws.providerConfig.defaultRegion }}
+  defaultRegion: {{ .Values.providers.aws.providerConfig.defaultRegion }}
+  {{- end }}
