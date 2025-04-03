@@ -29,7 +29,7 @@ Output should be clean YAML and support templating via `.Values`. Don’t includ
 ## ✅ Prompt 2: Define the EventBridge Bus (Crossplane)
 
 ```
-Write a Crossplane `aws.eventbridge.EventBus` resource using Upbound's provider-aws.
+Write a Crossplane `aws.eventbridge.EventBus` resource using Upbound's provider-family-aws and any providers in that family that are necessary.
 
 The name should be templated via `.Values.appName`. The resource should be defined as a Helm template.
 
