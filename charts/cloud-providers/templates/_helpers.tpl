@@ -49,3 +49,15 @@ Selector labels
 app.kubernetes.io/name: {{ include "cloud-providers.name" . }}
 app.kubernetes.io/instance: {{ .Release.Name }}
 {{- end }}
+
+{{/*
+AWS credentials in the format expected by Crossplane
+*/}}
+{{- define "cloud-providers.awsCredentials" -}}
+[default]
+aws_access_key_id = {{ .Values.providers.aws.providerConfig.credentials.accessKeyId }}
+aws_secret_access_key = {{ .Values.providers.aws.providerConfig.credentials.secretAccessKey }}
+{{- if .Values.providers.aws.providerConfig.credentials.sessionToken }}
+aws_session_token = {{ .Values.providers.aws.providerConfig.credentials.sessionToken }}
+{{- end }}
+{{- end }}

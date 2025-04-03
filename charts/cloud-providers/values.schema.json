@@ -66,6 +66,53 @@
                   "default": ""
                 }
               }
+            },
+            "providerConfig": {
+              "type": "object",
+              "properties": {
+                "name": {
+                  "type": "string",
+                  "description": "Name of the AWS provider configuration"
+                },
+                "defaultRegion": {
+                  "type": "string",
+                  "description": "Default AWS region for the provider"
+                },
+                "existingSecret": {
+                  "type": "object",
+                  "properties": {
+                    "namespace": {
+                      "type": "string",
+                      "description": "Namespace of the existing AWS credentials secret"
+                    },
+                    "name": {
+                      "type": "string",
+                      "description": "Name of the existing AWS credentials secret"
+                    },
+                    "key": {
+                      "type": "string",
+                      "description": "Key in the secret containing AWS credentials"
+                    }
+                  }
+                },
+                "credentials": {
+                  "type": "object",
+                  "properties": {
+                    "accessKeyId": {
+                      "type": "string",
+                      "description": "AWS Access Key ID"
+                    },
+                    "secretAccessKey": {
+                      "type": "string",
+                      "description": "AWS Secret Access Key"
+                    },
+                    "sessionToken": {
+                      "type": "string",
+                      "description": "AWS Session Token (optional)"
+                    }
+                  }
+                }
+              }
             }
           }
         }

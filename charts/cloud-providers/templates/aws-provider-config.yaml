@@ -10,13 +10,17 @@ metadata:
     {{- include "cloud-providers.labels" . | nindent 4 }}
 spec:
   credentials:
-    source: {{ .Values.providers.aws.providerConfig.credentials.source }}
-    {{- if eq .Values.providers.aws.providerConfig.credentials.source "Secret" }}
+    source: Secret
     secretRef:
-      namespace: {{ .Values.providers.aws.providerConfig.credentials.secretRef.namespace }}
-      name: {{ .Values.providers.aws.providerConfig.credentials.secretRef.name }}
-      key: {{ .Values.providers.aws.providerConfig.credentials.secretRef.key }}
-    {{- end }}
+      {{- if .Values.providers.aws.providerConfig.existingSecret.name }}
+      namespace: {{ .Values.providers.aws.providerConfig.existingSecret.namespace }}
+      name: {{ .Values.providers.aws.providerConfig.existingSecret.name }}
+      key: {{ .Values.providers.aws.providerConfig.existingSecret.key }}
+      {{- else }}
+      namespace: crossplane-system
+      name: {{ include "cloud-providers.fullname" . }}-aws-creds
+      key: creds
+      {{- end }}
   {{- if .Values.providers.aws.providerConfig.defaultRegion }}
   defaultRegion: {{ .Values.providers.aws.providerConfig.defaultRegion }}
   {{- end }}
