@@ -19,7 +19,7 @@ This checklist tracks the conversion of the Serverlesspresso CloudFormation stac
 - [✅] Create base `templates/` directory
 - [✅] Set up default `providerConfigRef` as a Helm value:
   - [✅] Ensure provider config is properly named and labeled in `cloud-providers` chart
-  - [ ] Add providerConfigRef value in `serverlesspresso` chart with empty default
+  - [✅] Add providerConfigRef value in `serverlesspresso` chart with empty default
 
 ---
 
