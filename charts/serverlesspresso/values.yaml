@@ -1,0 +1,20 @@
+# Application name used for resource naming
+appName: "serverlesspresso"
+
+# Service name used for resource naming
+service: "app"
+
+# Number of days to retain logs
+logRetentionInDays: 7
+
+# Time interval for operations (in seconds)
+timeInterval: 300
+
+# Length of verification codes
+codeLength: 6
+
+# Number of tokens per rate limit bucket
+tokensPerBucket: 5
+
+# Source code location or reference
+source: "github.com/aws-samples/serverless-coffee-workshop"

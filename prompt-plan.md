@@ -7,7 +7,8 @@ This document contains a step-by-step series of LLM-friendly prompts for convert
 ## ✅ Prompt 1: Scaffolding the Helm Chart
 
 ```
-Create a Helm chart named `serverlesspresso`. The chart should have the following structure:
+Create a Helm chart named `serverlesspresso` in the `charts` directory. The chart should have the 
+following structure:
 
 - A `Chart.yaml` with metadata.
 - A `values.yaml` containing values for:
