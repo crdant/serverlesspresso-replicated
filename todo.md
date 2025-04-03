@@ -16,7 +16,7 @@ This checklist tracks the conversion of the Serverlesspresso CloudFormation stac
   - [✅] tokensPerBucket
   - [✅] source
 - [✅] Create `_helpers.tpl` for naming helpers
-- [ ] Create base `templates/` directory
+- [✅] Create base `templates/` directory
 - [ ] Set up default `providerConfigRef` as a Helm value
 
 ---
