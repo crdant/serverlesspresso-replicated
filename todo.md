@@ -8,16 +8,16 @@ This checklist tracks the conversion of the Serverlesspresso CloudFormation stac
 
 ## 📁 Phase 1: Helm Scaffolding
 
-- [ ] Create `Chart.yaml` with metadata
-- [ ] Create `values.yaml` with parameters:
-  - [ ] appName
-  - [ ] service
-  - [ ] logRetentionInDays
-  - [ ] timeInterval
-  - [ ] codeLength
-  - [ ] tokensPerBucket
-  - [ ] source
-- [ ] Create `_helpers.tpl` for naming helpers
+- [✅] Create `Chart.yaml` with metadata
+- [✅] Create `values.yaml` with parameters:
+  - [✅] appName
+  - [✅] service
+  - [✅] logRetentionInDays
+  - [✅] timeInterval
+  - [✅] codeLength
+  - [✅] tokensPerBucket
+  - [✅] source
+- [✅] Create `_helpers.tpl` for naming helpers
 - [ ] Create base `templates/` directory
 - [ ] Set up default `providerConfigRef` as a Helm value
 
