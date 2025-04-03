@@ -1,0 +1,15 @@
+---
+apiVersion: pkg.crossplane.io/v1
+kind: Provider
+metadata:
+  name: {{ include "cloud-providers.fullname" . }}-aws-eventbridge
+  labels: {{ include "cloud-providers.labels" . | nindent 4 }}
+spec:
+  package: {{ .Values.providers.registry }}/{{ .Values.providers.aws.packages.eventbridge }}:{{ .Values.providers.aws.version }}
+  {{- with .Values.providers.packagePullSecrets }}
+  packagePullSecrets:
+    {{- toYaml . | nindent 4 }}
+  {{- end }}
+  {{- if and .Values.providers.pullPolicy (ne .Values.providers.pullPolicy "") }}
+  packagePullPolicy: {{ .Values.providers.pullPolicy }}
+  {{- end }}
