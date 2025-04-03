@@ -1,0 +1,37 @@
+{{- /*
+AWS EventBus resource using Upbound's provider-family-aws
+*/}}
+apiVersion: eventbridge.aws.upbound.io/v1beta1
+kind: EventBus
+metadata:
+  name: {{ include "serverlesspresso.fullname" . }}-{{ .Values.appName }}
+  labels:
+    {{- include "serverlesspresso.labels" . | nindent 4 }}
+spec:
+  forProvider:
+    name: {{ .Values.appName }}
+    region: {{ .Values.region | default "us-west-2" }}
+  providerConfigRef:
+    {{- if .Values.providerConfigRef }}
+    name: {{ .Values.providerConfigRef }}
+    {{- else }}
+    name: default
+    {{- end }}
+  {{- with .Values.deletionPolicy }}
+  deletionPolicy: {{ . }}
+  {{- end }}
+{{- with .Values.publishConnectionDetailsTo }}
+  publishConnectionDetailsTo:
+    name: {{ .name }}
+    {{- with .namespace }}
+    namespace: {{ . }}
+    {{- end }}
+    {{- with .configRef }}
+    configRef:
+      name: {{ .name }}
+    {{- end }}
+    {{- with .metadata }}
+    metadata:
+      {{- toYaml . | nindent 6 }}
+    {{- end }}
+{{- end }}
